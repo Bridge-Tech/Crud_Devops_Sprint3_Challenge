@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Pessoas</title>
+</head>
+<body>
+	<h1>Air-Plus</h1>
+	<h2> Cadastro de pessoas</h2>
+	<a href="/person/new">Cadastrar Pessoa</a>
+	
+	<a href="/people">Atualizar listagem</a>
+ 	<ul th:each="person : ${people}">
+		<li>
+			<p th:text="${person.name}"></p>
+			<p th:text="${person.address}"></p>
+			<p th:text="${person.phone}"></p>
+			<p th:text="${person.birthdate}"></p>
+			<p th:text="${person.sex}"></p>
+			<a th:href="@{/person/delete/(id=${person.Id})}">Deletar</a>
+			<a th:href="@{/person/update/(id=${person.Id})}">Atualizar</a>
+			
+		</li>
+	</ul>
+</body>
+</html>

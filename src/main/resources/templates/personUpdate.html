@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<h1>Air-Plus</h1>
+	
+	<h2>Atualizar Pessoa</h2>
+	 <form action="/person/delete/1" method="post" th:each="person : ${people}"
+	 th:object="${person}">
+		
+		<label for="id">ID</label>
+		<input id="id" hidden="true" name="id" th:field="*{id}">
+		
+		
+		<label for="name">Nome</label>
+		<input id="name" name="name" th:field="*{name}">
+		<span th:errors="*{name}"></span>
+		
+		<label for="birthdate">Data de Nascimento</label>
+		<input id="birthdate" type="date" name="birthdate" th:field="*{birthdate}">
+		<span th:errors="*{birthdate}"></span>
+		
+		<label for="sex">Sexo</label>
+		<input id="sex" type="text" name="sex" th:field="*{sex}">
+		<span th:errors="*{sex}"></span>
+		
+		<label for="address">Endereco</label>
+		<input id="address" type="text" name="address" th:field="*{address}">
+		<span th:errors="*{address}"></span>
+		
+		<label for="phone">Tel. Contato</label>
+		<input id="phone" type="tel" name="phone" th:field="*{phone}">
+		<span th:errors="*{phone}"></span>
+		
+		<a href="/people">Cancelar</a>
+		<button>Salvar</button>
+	
+	</form> 
+	
+	
+</body>
+</html>
