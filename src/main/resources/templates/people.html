@@ -17,8 +17,8 @@
 			<p th:text="${person.phone}"></p>
 			<p th:text="${person.birthdate}"></p>
 			<p th:text="${person.sex}"></p>
-			<a th:href="@{/person/delete/(id=${person.Id})}">Deletar</a>
-			<a th:href="@{/person/update/(id=${person.Id})}">Atualizar</a>
+			<a th:href="${'/person/delete/'+person.Id}">Deletar</a>
+			<a th:href="${'/person/update/'+person.Id}">Atualizar</a>
 			
 		</li>
 	</ul>

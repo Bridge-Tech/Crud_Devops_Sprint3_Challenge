@@ -7,10 +7,33 @@
 <body>
 	<h1>Air-Plus</h1>
 	<h2> Deleção de pessoas</h2>
-	  <form action="/person/delete/1" method="post">
+	
+	<div th:object="${people}">
+		<form th:action="${'/person/delete/'+id}" method="post" >
+			
+	
+			<label for="name">Nome</label>
+			<input id="name" disabled="disabled" name="name" th:field="*{name}">
+			
+			<label for="birthdate">Data de Nascimento</label>
+			<input id="birthdate" disabled="disabled" type="date" name="birthdate" th:field="*{birthdate}">
 
-		<button>Deletar</button>
-	</form>
+			
+			<label for="sex">Sexo</label>
+			<input id="sex" disabled="disabled" type="text" name="sex" th:field="*{sex}">
+			
+			
+			<label for="address">Endereco</label>
+			<input id="address" disabled="disabled" type="text" name="address" th:field="*{address}">
+			
+			<label for="phone">Tel. Contato</label>
+			<input id="phone" disabled="disabled" type="tel" name="phone" th:field="*{phone}">
+			
+			<a href="/people">Cancelar</a>
+			<button>Deletar</button>
+		
+		</form>
+	</div>
  	
 </body>
 </html>

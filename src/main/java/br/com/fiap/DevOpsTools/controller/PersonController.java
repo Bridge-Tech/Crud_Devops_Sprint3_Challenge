@@ -46,14 +46,11 @@ public class PersonController {
 	}
 	
 	@GetMapping("/person/delete/{id}")
-	public ModelAndView personDel(@PathVariable String id) {
+	public ModelAndView personDel(@PathVariable Long id) {
 		ModelAndView modelAndView = new ModelAndView("personDel");
-		String newStringId = id.replace('?', ' ');
-		System.out.println(newStringId);
-		Long newId = Long.parseLong(newStringId.trim());
-		Optional<Person>optional = repository.findById(newId);
-		Person person  = optional.get();
-		modelAndView.addObject("people", person);
+		Optional<Person>optional = repository.findById(id);
+		Person people  = optional.get();
+		modelAndView.addObject("people", people);
 		return modelAndView;
 		
 	}
@@ -72,15 +69,12 @@ public class PersonController {
 	
 	
 	@GetMapping("/person/update/{id}")
-	public ModelAndView personupdate(@PathVariable String id) {
+	public ModelAndView personupdate(@PathVariable Long id) {
 		
 		ModelAndView modelAndView = new ModelAndView("personUpdate");
-		String newStringId = id.replace('?', ' ');
-		System.out.println(newStringId);
-		Long newId = Long.parseLong(newStringId.trim());
-		Optional<Person>optional = repository.findById(newId);
-		Person person  = optional.get();
-		modelAndView.addObject("people", person);
+		Optional<Person>optional = repository.findById(id);
+		Person peolple  = optional.get();
+		modelAndView.addObject("people", peolple);
 		return modelAndView;
 	}
 	
